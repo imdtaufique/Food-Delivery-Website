@@ -1,0 +1,11 @@
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\DataModel.dll
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\DataModel.pdb
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\xunit.abstractions.dll
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\xunit.core.dll
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\xunit.abstractions.xml
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\bin\Debug\xunit.core.xml
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\obj\Debug\DataModel.csproj.AssemblyReference.cache
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\obj\Debug\DataModel.csproj.CoreCompileInputs.cache
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\obj\Debug\DataModel.dll
+E:\Git\Innoease\InnoAssignment1\Taufique\InnoAssignment1\DataModel\obj\Debug\DataModel.pdb

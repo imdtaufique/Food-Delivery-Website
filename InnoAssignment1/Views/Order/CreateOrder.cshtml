@@ -1,0 +1,120 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateOrder</title>
+    <style>
+        .container {
+            height: 100vh;
+            width: 100vw;
+            background-image: url("https://img.freepik.com/free-photo/view-food-assortment-with-copy-space_23-2148859557.jpg?w=1380&t=st=1684921074~exp=1684921674~hmac=bb8e635d47264ba09d0ecd932ea4feead5cc9d7ee07869d5d4cdde8b7164d124");
+            background-size: 100%;
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-align:center;
+        }
+        .box {
+            
+            height: 500px;
+            width: 350px;
+            border-radius: 10px;
+            background: #fff0;
+            padding: 40px;
+        }   
+        #text {
+            width: 300px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #paymentmethod {
+            width: 311px;
+            height: 34px;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #btn {
+            border: none;
+            border-radius: 17px;
+            color: blue;
+            border: 2px solid;
+            margin-left: 24px;
+            padding: 6px 13px;
+        }
+
+            #btn:hover {
+                background-color: #4CAF50; /* Green */
+                color: black;
+                cursor: pointer;
+                border:2px solid black;
+            }
+
+        a {
+            cursor: default;
+        }
+        .child {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("CreateNewOrder", "Order"))
+        {   <div class="box">
+        <h1>Place New Order..</h1>
+            <form id="createOrder"  >
+                <label>
+                    <b>Address</b>
+                </label><br />
+                <input type="text" id="text" name="address" placeholder="Address" required />
+                <br /><br />
+                <label>
+                    <b>City</b>
+                </label><br />
+                <input type="text" id="text" name="city" placeholder="City" required />
+                <br /><br />
+                <label>
+                    <b>State</b>
+                </label><br />
+                <input type="text" id="text" name="state" placeholder="State"  required/>
+                <br /><br />
+                <label>
+                    <b>Landmark</b>
+                </label><br />
+                <input type="text" id="text" name="landmark" placeholder="Landmark"  required/>
+                <br /><br />
+                <label>
+                    <b>Mobile no</b>
+                </label><br />
+                <input type="text" id="text" name="mobileno" placeholder="Mobile no." required />
+                <br /><br />
+               
+                <label>
+                    <b>Payment Method</b>
+                </label><br />
+                <select name="paymentmethod" id="paymentmethod" required>
+                    <option value="227830000">Cash</option>
+                    <option value="227830001">UPI</option>
+                </select>
+                <br /><br />
+                <div class="child">
+                <button type="submit" id="btn"> Continue </button>
+                </div>
+            </form>
+        </div>
+        }
+        </div>
+</body>
+</html>

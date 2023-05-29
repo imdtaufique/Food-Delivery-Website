@@ -1,0 +1,149 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            margin: 0px;
+            padding: 0px;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/002/032/336/large_2x/frame-of-fresh-ingredients-on-a-white-background-free-photo.jpg");
+            background-size: 100%;
+            backdrop-filter: blur(1px);
+            /*  background-color: #6abadeba;*/
+        }
+
+        .login {
+            width: 20%;
+            overflow: hidden;
+            padding: 40px;
+            background: #ffffff1f;
+            border-radius: 15px;
+         /*   box-shadow: 0px 0px 26px 19px #b9b617c9, inset 0px 0px 23px 5px #c4c117;*/
+        }
+
+
+        h1 {
+            text-align: center;
+            color: black;
+            margin: -18px 46px -10px 37px;
+        }
+
+        label {
+            color: black;
+            font-size: 17px;
+        }
+
+        #email {
+            width: 300px;
+            height: 30px;
+            border: 1px solid;
+            border-color:black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+
+        #password {
+            width: 300px;
+            height: 30px;
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px;
+            padding-left: 8px;
+
+        }
+
+
+        .btn {
+            border: none;
+            border-radius: 17px;
+            color: blue;
+            border: 2px solid;
+            margin-left: 24px;
+            padding: 6px 13px;
+        }
+            .btn:hover {
+                background-color: #4CAF50; /* Green */
+                color: black;
+                cursor: pointer;
+                border: 2px solid black;
+            }
+        a{
+            cursor:default;
+        }
+
+      
+        @@media screen and (max-width: 500px) {
+            .login {
+                background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+                background-color: white;
+                overflow: auto;
+                padding: 42px;
+                background: #ffffff1f;
+                border-radius: 10px;
+                width: 75%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+           }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="login">
+
+        @using (Html.BeginForm())
+        {
+            @Html.EditorForModel()
+            <form id="login" name=" login">
+                <h1>Login Page</h1><br>
+                <label>
+                    <b>
+                        Email
+                    </b><br />
+                </label>
+                <input type="text" name="email" id="email" placeholder="Email Address" required>
+                <br><br>
+                <label>
+                    <b>
+                        Password
+                    </b><br />
+                </label>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="checkbox" onclick="myFunction()">Show Password
+                <br><br>
+
+            
+                <button name="login" class="btn" formaction="@Url.Action("LoginSubmit","Login")" formmethod="post"> Login </button>
+                <button name="forget" class="btn" formaction="@Url.Action("ForgetPassword","Login")" formmethod="post"> Forget </button>
+
+                <a href="~/Signup/Signup">
+                    <input type="button" class="btn" value="Signup" />
+                </a><br />
+
+            </form>
+        }
+
+
+    </div>
+    @Scripts.Render("~/bundles/Custom")
+
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+﻿@model InnoAssignment1.ViewModel.ViewOrder_VM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewOrder</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-image: url("https://img.freepik.com/free-photo/delicious-food-frame-with-copy-space_23-2148859605.jpg?w=1380&t=st=1684922099~exp=1684922699~hmac=7c282d01a8426b66ff528efa3d5b742e533738771f93bd7aabece7d89520daaf");
+            background-size: 100%;
+            backdrop-filter: blur(4px);
+        }
+
+        #quantity {
+            width: 300px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+
+        #item {
+            width: 311px;
+            height: 34px;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 17px;
+            color: blue;
+            border: 2px solid;
+            margin-left: 24px;
+            padding: 6px 13px;
+        }
+
+            .btn:hover {
+                background-color: #4CAF50; /* Green */
+                color: black;
+                cursor: pointer;
+                border: 2px solid black;
+            }
+
+        a {
+            cursor: default;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 0px;
+            padding: 0px;
+            background-size: 100%;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        .box {
+            height: 125px;
+            width: 21vw;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        .table {
+            height: 161px;
+            width: 100%;
+            margin: 12px;
+            background-color: #80808000;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffa500ad;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #3ea63e66;
+        }
+
+        .rows {
+            color: red;
+            text-align: center;
+        }
+
+        .rowses {
+            color: black;
+            text-align: center;
+        }
+
+        .grandcha {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        @if (Model.Order != null)
+        {
+            if (Model.Order.StatusReasonValue == 1)
+            {
+                using (Html.BeginForm("AddItemsInCustomerOrder", "Order"))
+                {
+                <div class="box">
+
+                    <div id="element">
+                        <select name="item" id="item">
+                            <option selected disabled>Choose Items from List</option>
+                            @foreach (var item in Model.ItemMasters)
+                            {
+                                <option value=@item.Id>@item.Name => Price per Plate : @item.Price</option>
+                            }
+                        </select>
+
+                        <div>
+                            <br />
+                            <label for="quantity">Quantity</label><br />
+                            <input type="text" name="quantity" id="quantity" placeholder="Quantity. Like - 1 , 3, 10, in number" />
+                        </div>
+                        <br />
+                        <div class="grandcha">
+                            <button class="btn" type="submit">Add Item</button>
+                        </div>
+                    </div>
+
+                </div>
+                }
+            }
+        }
+        else
+        {
+            <div class="box">
+
+                <p> <i>Items list is updating please be patience or try after some time </i></p>
+            </div>
+        }
+
+    </div>
+    <table border="1" class="table">
+        <tr>
+            <th colspan="5"><b>Personal Details</b></th>
+        </tr>
+        <tr class="rows">
+
+            <th>Contact No.</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Landmark</th>
+        </tr>
+        <tr class="rowses">
+
+            <td>@Model.Order.ContactNo</td>
+            <td>@Model.Order.Address</td>
+            <td>@Model.Order.City</td>
+            <td>@Model.Order.Landmark</td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <table border="1" class="table">
+        <tr>
+            <th colspan="5"> <b>Order Details</b></th>
+        </tr>
+        <tr class="rows">
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantuity</th>
+            <th>Amount</th>
+            <th>Remove Item</th>
+        </tr>
+        @if (Model.OrderItems != null)
+        {
+            foreach (var item in Model.OrderItems)
+            {
+                <tr class="rowses">
+                    <td>@item.ItemMasterName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Amount</td>
+                    @if (item.Id != Guid.Empty && Model.Order.StatusReasonValue == 1)
+                    {
+                        <td><form><button class="btn" type="submit" formaction="@Url.Action("DeleteOrderItem", "Order", new {id = item.Id})">Remove</button></form></td>
+                    }
+                </tr>
+            }
+        }
+    </table>
+    @if (Model.Order.StatusReasonValue == 1)
+    {
+        <form class="grandcha">
+
+            <button type="submit" class="btn" formaction='@Url.Action("UpdateOrderStatus", "Order",  new {Id = Model.Order.Id})'>Place Order</button>
+        </form>
+    }
+</body>
+</html>

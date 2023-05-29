@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Forget</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #6abadeba;
+        }
+
+        .forget {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: -50px 0 0 550px;
+            padding: 100px;
+            background: peru;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            padding: 20px;
+        }
+
+        label {
+            color: black;
+            font-size: 17px;
+        }
+
+        #email {
+            width: 300px;
+            height: 30px;
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #forget {
+            width: 75px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("ForgetPassword", "Login"))
+    {
+    <h1>Forget Password</h1><br>
+    <div class="forget">
+        <form id="forget" name=" forget">
+            <label>
+                <b>
+                    Email
+                </b><br />
+            </label>
+            <input type="text" name="email" id="email" placeholder="Email Address" required>
+            <input type="submit" id="forget" value="Forget" />
+ 
+
+            <br />
+            <br />
+            <br />
+        </form>
+    </div>
+    }
+</body>
+</html>

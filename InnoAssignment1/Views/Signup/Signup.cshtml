@@ -1,0 +1,159 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Signup</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/002/032/336/large_2x/frame-of-fresh-ingredients-on-a-white-background-free-photo.jpg");
+            background-size: 100%;
+            backdrop-filter: blur(1px);
+        }
+
+        .signup {
+            width: 22%;
+overflow: hidden;
+margin: -50px 0 0 550px;
+padding: 40px;
+background: #fff0;
+border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            padding: 20px;
+        }
+
+        label {
+            color: black;
+            font-size: 17px;
+        }
+
+        #text {
+            width: 300px;
+            height: 30px;
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+
+
+
+        .btn {
+            border: none;
+            border-radius: 17px;
+            color: blue;
+            border: 2px solid;
+            margin-left: 24px;
+            padding: 6px 13px;
+        }
+
+            .btn:hover {
+                background-color: #4CAF50; /* Green */
+                color: black;
+                cursor: pointer;
+                border: 2px solid black;
+            }
+
+        a {
+            cursor: default;
+        }
+
+        @@media screen and (max-width: 500px) {
+            .signup {
+                background-color: white;
+                overflow: auto;
+                padding: 42px;
+                background: peru;
+                border-radius: 10px;
+                width: 75%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("SignupSubmit", "Signup"))
+    { 
+    <h1>Signup...</h1><br>
+    <div class="signup">
+        <form id="signup" name=" signup">
+            <label>
+                <b>
+                    First Name
+                </b><br />
+            </label>
+            <input type="text" name="firstname" id="text" placeholder="First Name" required>
+            <br><br>
+            <label>
+                <b>
+                    last Name
+                </b><br />
+            </label>
+            <input type="text" name="lastname" id="text" placeholder="Last Name" required>
+            <br><br>
+            <label >
+                <b>
+                    Gender :
+                </b>
+            </label>
+            <input type="radio" value=" 1" name="gender" />Male
+            <input type="radio" value="2" name="gender" />Female
+
+            <br /><br />
+            <label>
+                <b>
+                    Date Of Birth :
+                </b>
+                <br />
+            </label>
+            <input type="date" name="birthdate" id="text" placeholder="Date Of Birth" required>
+            <br><br>
+            <label>
+                <b>
+                    Email
+                </b><br />
+            </label>
+            <input type="text" name="email" id="text" placeholder="Email Address" required >
+            <br><br>
+            <label>
+                <b>
+                    Mobile Number
+                </b><br />
+            </label>
+            <input type="text" name="mobile" id="text" placeholder="Mobile Number" required>
+            <br><br>
+            <label>
+                <b>
+                    Password
+                </b><br />
+            </label>
+            <input type="password" name="password" id="text" placeholder="Password" required>
+            <br><br>
+
+            <input type="checkbox" id="check">
+            <b>Agree to terms and conditions</b><br><br>
+            <button type="submit" class="btn"> Signup</button>
+
+            <a href="~/Login/Login">
+                <input type="button" class="btn" value="Login" />
+            </a>
+            
+        </form>
+    </div>
+    }
+</body>
+</html>

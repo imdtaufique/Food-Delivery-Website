@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChangePass</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        h1{
+            margin-bottom:30px;
+        }
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/previews/002/032/336/large_2x/frame-of-fresh-ingredients-on-a-white-background-free-photo.jpg");
+            background-size: 100%;
+            backdrop-filter: blur(4px);
+        }
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            height: 274px;
+            width: 350px;
+           background: #fff0;
+          /*  padding: 40px;*/
+        }
+
+        .input {
+            width: 300px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+
+
+        #button {
+            border: none;
+            border-radius: 17px;
+            color: blue;
+            border: 2px solid;
+            padding: 6px 13px;
+            background-color:white;
+        }
+
+            #button:hover {
+                background-color: #4CAF50; /* Green */
+                color: black;
+                cursor: pointer;
+                border: 2px solid black;
+            }
+
+        a {
+            cursor: default;
+        }
+        
+
+        .child {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <div class="box">
+            <h1>Change Password...</h1>
+            <form>
+               
+                <label>
+                    <b>Enter Old Password</b>
+                </label>
+                <br />
+                <input type="password" name="password" class="input" placeholder="password" required />
+                <br /><br />
+
+                <label>
+                    <b>Enter New Password</b>
+                </label>
+                <br />
+                <input type="password" name="newPassword" class="input" placeholder="password" required />
+                <br /><br />
+
+
+                <label>
+                    <pre><b>After your password is changed sucessfully.</b>
+<b>You'll redirected to login page...</b>
+                    </pre>
+                </label>
+                <div class="child">
+                    <button type="submit" id="button" formaction="@Url.Action("ChangePassword","Login")">Change Password</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
